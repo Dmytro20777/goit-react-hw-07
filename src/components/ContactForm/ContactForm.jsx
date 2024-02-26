@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { IoPersonAdd } from "react-icons/io5";
 
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/operations";
 
@@ -18,7 +18,7 @@ const ContactForm = () => {
     const dispatch = useDispatch();
     
     const addNewContact = (newName, newNumber) => {
-    dispatch(addContact({ name: newName, phone: newNumber }));
+    dispatch(addContact({ id: nanoid(), name: newName, phone: newNumber }));
   };
     const nameFieldId = useId();
     const numberFieldId = useId();
