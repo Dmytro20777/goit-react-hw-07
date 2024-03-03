@@ -7,7 +7,7 @@ export const Contact = ({ item,  onDelete }) => {
     return (
         <>
             <h2 className={css.title}><IoPersonOutline className={css.iconPerson} />{item.name}</h2>
-                <p className={css.discription}><CiPhone className={css.iconPhone} />{item.phone}</p>
+                <p className={css.discription}><CiPhone className={css.iconPhone} />{item.number}</p>
             <button
                 className={css.btn}
                 onClick={() => onDelete(item.id)}>

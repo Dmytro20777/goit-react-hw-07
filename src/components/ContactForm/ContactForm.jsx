@@ -3,15 +3,12 @@ import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { useId } from "react";
 import { IoPersonAdd } from "react-icons/io5";
-
-// import { nanoid } from 'nanoid';
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/operations";
-
+import { addContact } from "../../redux/contacts/operations";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-  phone: Yup.string().min(3, "Too short").max(50, "Too long").required("Required"),
+  number: Yup.string().min(3, "Too short").max(50, "Too long").required("Required"),
 });
 
 export const ContactForm = () => {
@@ -26,7 +23,7 @@ export const ContactForm = () => {
 
     return (
         <div className={css.container}>
-            <Formik initialValues={{ name: "", phone: "" }} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+            <Formik initialValues={{ name: "", number: "" }} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
                 <Form className={css.fieldContainer}>
                     <label className={css.label} htmlFor={nameFieldId}>Name
                         <Field
@@ -42,11 +39,11 @@ export const ContactForm = () => {
                         <Field
                             className={css.field}
                             type="text"
-                            name="phone"
+                            name="number"
                             placeholder="Number"
                             id={numberFieldId}
                         />
-                        <ErrorMessage name="phone" component="span" className={css.error} />
+                        <ErrorMessage name="number" component="span" className={css.error} />
                     </label>
                     <button className={css.btn} type="submit">Add contact <IoPersonAdd className={css.addPerson} /></button>
                 </Form>
