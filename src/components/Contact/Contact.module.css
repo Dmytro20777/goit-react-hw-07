@@ -23,21 +23,7 @@
     margin-right: 7px;
 }
 
-.btn {
-    padding: 8px 12px;
-    background-color: #e32f0f;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
 
-.btn:hover {
-    background-color: #731a08;
-}
 
 .iconDelete {
     margin-left: 7px;

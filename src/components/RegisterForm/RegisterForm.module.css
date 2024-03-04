@@ -36,21 +36,6 @@
     margin-top: 4px;
 }
 
-.btn {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.btn:hover {
-    background-color: #358337;
-}
 
 .addPerson {
     font-size: 15px;

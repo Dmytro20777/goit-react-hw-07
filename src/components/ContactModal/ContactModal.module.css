@@ -1,0 +1,66 @@
+.modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    border-radius: 8px;
+    outline: none;
+    max-width: 80%;
+}
+
+.modalContainer {
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: -18px;
+    right: -30px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #c47575;
+    transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+    color: rgb(253, 85, 85);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.field {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: #fff;
+}
+
+.field:focus {
+    outline: none;
+    border-color: #6e9ee1;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+
+
+.addPerson {
+    font-size: 15px;
+    margin-left: 8px;
+}

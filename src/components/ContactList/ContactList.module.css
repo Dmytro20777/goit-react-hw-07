@@ -12,11 +12,14 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 
 .item:hover {
-    background-color: #f9cb01;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 
@@ -28,4 +31,5 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    justify-content: center
 }

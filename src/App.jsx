@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { useAuth } from "./components/hooks/useAuth";
 import { Layout } from "./Layout";
 import { refreshUser } from "./redux/auth/operations";
+import { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -15,6 +17,7 @@ const LoginPage = lazy(() => import('./pages/Login'));
 const ContactsPage = lazy(() => import('./pages/Сontacts'));
 
 export const App = () => {
+
 
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -53,7 +56,8 @@ export const App = () => {
             }
           />
         </Route>
-      </Routes>
+        </Routes>
+        <Toaster/>
     </>
   );
 };

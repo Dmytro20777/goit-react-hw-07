@@ -3,27 +3,52 @@ import { Contact } from "../Contact/Contact";
 import css from "./ContactList.module.css"
 import { visibleContacts } from "../../redux/contacts/selectors"
 import { deleteContact } from "../../redux/contacts/operations";
+import { ConfirmationModal } from "../ConfirmationModal/ConfirmationModal";
+import { useState } from "react";
+import { toast } from 'react-hot-toast';
 
-const ContactList = () => {
+const ContactList = ({ openModal }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(visibleContacts);
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+  const [contactToDelete, setContactToDelete] = useState(null);
 
   const deleteUser = (userId) => {
-    dispatch(deleteContact(userId));
+    setContactToDelete(userId);
+    setIsConfirmationModalOpen(true);
   };
 
-    
-    return (
-      <div>
-        <ul className={css.list}>
-        {contacts.length > 0 && contacts.map((item) => (
-          <li key={item.id} className={css.item}>
-            <Contact item={item} onDelete={deleteUser} />
-          </li>
-        ))}
-      </ul>
-    </div>
-    )
-}
+  const confirmDelete = () => {
+    if (contactToDelete) {
+      dispatch(deleteContact(contactToDelete));
+      setIsConfirmationModalOpen(false);
+      setContactToDelete(null);
+      toast.success('Contact deleted successfully!');
+    }
+  };
 
-export default ContactList
+  const closeModal = () => {
+    setIsConfirmationModalOpen(false);
+    setContactToDelete(null);
+  };
+
+  return (
+    <div>
+      <ul className={css.list}>
+        {contacts.length > 0 &&
+          contacts.map((item) => (
+            <li key={item.id} className={css.item} onClick={() => openModal(item)}>
+              <Contact item={item} onDelete={() => deleteUser(item.id)} />
+            </li>
+          ))}
+      </ul>
+      <ConfirmationModal
+        isOpen={isConfirmationModalOpen}
+        closeModal={closeModal}
+        confirmDelete={confirmDelete}
+      />
+    </div>
+  );
+};
+
+export default ContactList;
