@@ -5,11 +5,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../redux/contacts/operations"
 import { selectContacts } from "../redux/contacts/selectors";
-import { ContactModal } from "../components/ContactModal/ContactModal"
+import { ContactModal } from "../components/ContactModal/ContactModal";
+
  
 
 
 const Сontacts = () => {
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
 

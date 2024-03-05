@@ -7,6 +7,7 @@ import { useAuth } from "./components/hooks/useAuth";
 import { Layout } from "./Layout";
 import { refreshUser } from "./redux/auth/operations";
 import { Toaster } from 'react-hot-toast';
+import { Loader } from "./components/Loader/Loader";
 
 
 
@@ -28,7 +29,7 @@ export const App = () => {
   
   
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader loading={isRefreshing}/>
   ) : (
     <>
       <Routes>
